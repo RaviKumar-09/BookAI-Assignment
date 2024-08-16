@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2? family=Inter: wght@300;400;600; 700&family=Fira+Code&display=swap');
 
+/* Reset and Global Styles */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -15,6 +16,7 @@ body {
     margin: 0;
 }
 
+/* Header Styles */
 header {
     background-color: #6366f1;
     padding: 2rem 0;
@@ -28,6 +30,7 @@ h1 {
     color: #ffffff;
 }
 
+/* Navigation Styles */
 nav {
     background-color: #1e293b;
     padding: 1rem 0;
@@ -69,12 +72,14 @@ h2,h3, h4 {
     color: #a5b4fc;
 }
 
+/* Main Content Styles */
 main {
     max-width: 1000px;
     margin: 2rem auto;
     padding: 0 2rem;
 }
 
+/* Section Titles */
 section {
     background-color: #1e293b;
     border-radius: 8px;
@@ -84,9 +89,10 @@ section {
     border: 1px solid #334155;
 }
 
+/* Code Blocks and Tables */
 pre, code {
     font-family: 'Fira Code', monospace;
-    /*background-color: #1e29bb;*/
+    background-color: #1e293b;
     border-radius: 4px;
     padding: 1rem;
     overflow-x: auto;
@@ -149,16 +155,20 @@ tr:last-child td {
     color: #22d3ee;
 }
 
+/* Button Section */
 button {
     background-color: #22d3ee;
     color: #0f172a;
     border: none;
-    padding: 0,75rem 1.5rem;
-    border-radius: 4px;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    width: auto;
     font-weight: 600;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, transform 0.2s ease;
     margin-top: 1rem;
 }
 
@@ -175,4 +185,28 @@ button:hover {
     font-family: 'Fira Code' , monospace;
     border: 1px solid #334155;
     word-break: break-all;
+}
+
+/*Responsiveness: Various screen sizes (mobile, tablet, desktop)*/
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0; 
+    }
+
+    main {
+        padding: 0.1rem;
+    }
+
+    section {
+        padding: 0 1rem;
+    }
+
+    table, th, td {
+        font-size: 0.85rem;
+    }
 }

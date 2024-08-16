@@ -5,9 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PRICING-SECTION</title>
         <link rel="stylesheet" href="style.css">
+        <script src="script.js" type="text/JavaScript"></script>
     </head>
     <body>
+        <!-- Header Section -->
         <header><h1>Book Generator API</h1></header>
+        <!-- Navigation Menu -->
         <nav>
             <ul>
                 <li><a href="overview">Overview</a></li>
@@ -18,27 +21,31 @@
                 <li><a href="pricing">Pricing</a></li>
             </ul>
         </nav>
+        <!-- Main Content Section -->
         <main>
+            <!-- Overview Section -->
             <section id="overview">
                 <h2>Overview</h2>
                 <p>The Book Generator API allows you to generate books on various topics using different language models. This documentation provides details on how to use the API, including authentication, available endpoints, and code examples.</p>
             </section>
+             <!-- Authentication Section -->
             <section id="authentication">
                 <h2>Authentication</h2>
                 <p>To use the API, you need to include your API key in the header of each request:</p>
                 <pre>
-                    <code>X-API-Key: YOUR_API_KEY</code>
+<code>X-API-Key: YOUR_API_KEY</code>
                 </pre>
                 <p>To generate an API key, use the button below:</p>
                 <button id="generateApiKey">Generate API Key</button>
                 <div id="apiKeyDispaly"></div>
             </section>
+            <!-- Endpoints Section -->
             <section id="endpoints">
                 <h2>Endpoints</h2>
                 <h3>Genarate Book</h3>
                 <p>
                     <span class="http-method">POST</span>
-                    <span class="endpoints">/api/generate-book</span>
+                    <span class="endpoint">/api/generate-book</span>
                 </p>
                     <h4>Request Body</h4>
                     <table class="parameter-table">
@@ -77,15 +84,16 @@
                     </table>
                 <h4>Response</h4>
                 <pre>
-                    <code>
-                        {
-                            "message": "Book generation started",
-                            "status": "processing",
-                            "job_id": "unique-job-identifier"
-                        }
-                    </code>
+<code>
+{
+    "message": "Book generation started",
+    "status": "processing",
+    "job_id": "unique-job-identifier"
+}
+</code>
                 </pre>
             </section>
+             <!-- Tutorial Section -->
             <section id="tutorial">
                 <h2>Tutorial</h2>
                 <h3>Step 1: Obtain an API Key</h3>
@@ -97,71 +105,74 @@
                 <h3>Step 4: Retrieve the Generated Book</h3>
                 <p>Once the job is complete, you can retrieve the generated book using the job ID (endpoint to be implemented).</p>
             </section>
+            <!-- Code Examples Section -->
             <section id="code-examples">
                 <h2>Code Examples</h2>
+                  <!-- Python Example -->
                 <h3>Python</h3>
                 <pre>
-                    <code>
-                        import requests
+<code>
+import requests
 
-                        API_KEY = "your_api_key_here"
-                        API_ENDPOINT = "https://tryBookAI.com/api/generate-book"
+API_KEY = "your_api_key_here"
+API_ENDPOINT = "https://tryBookAI.com/api/generate-book"
 
-                        headers = {
-                            "Content-Type": "application/json",
-                            "X-API-Key": API_KEY
-                        }
+headers = {
+        "Content-Type": "application/json",
+        "X-API-Key": API_KEY
+}
 
-                        data = {
-                            "api": "openai",
-                            "model": "gpt-3.5-turbo",
-                            "topic": "The Future of Artificial Intelligence",
-                            "language": "English",
-                            "word_count": 5000
-                        }
+data = {
+        "api": "openai",
+        "model": "gpt-3.5-turbo",
+        "topic": "The Future of Artificial Intelligence",
+        "language": "English",
+        "word_count": 5000
+}
 
-                        response = requests.post(API_ENDPOINT, json=data, headers=headers)
+response = requests.post(API_ENDPOINT, json=data, headers=headers)
 
-                        if response.status_code == 200:
-                            result = response.json()
-                            print(f"Book generation started. Job ID: {result['job_id']}")
-                        else:
-                            print(f"Error: {response.status_code} - {response.text}")
-
-                    </code>
+if response.status_code == 200:
+        result = response.json()
+        print(f"Book generation started. Job ID: {result['job_id']}")
+else:
+print(f"Error: {response.status_code} - {response.text}")
+</code>
                 </pre>
                 <h3>JavaScript (Node.js)</h3>
+                 <!-- JavaScript (Node.js) Example -->
                 <pre>
-                    <code>
-                        const axios = require('axios');
+<code>
+const axios = require('axios');
 
-                        const API_KEY = 'your_api_key_here';
-                        const API_ENDPOINT = 'https://tryBookAI.com/api/generate-book';
+const API_KEY = 'your_api_key_here';
+const API_ENDPOINT = 'https://tryBookAI.com/api/generate-book';
 
-                        const headers = {
-                            'Content-Type': 'application/json',
-                            'X-API-Key': API_KEY
-                        };
+const headers = {
+    'Content-Type': 'application/json',
+    'X-API-Key': API_KEY
+};
 
-                        const data = {
-                            api: 'openai',
-                            model: 'gpt-3.5-turbo',
-                            topic: 'The Future of Artificial Intelligence',
-                            language: 'English',
-                            word_count: 5000
-                        };
+const data = {
+api: 'openai',
+    model: 'gpt-3.5-turbo',
+    topic: 'The Future of Artificial Intelligence',
+    language: 'English',
+    word_count: 5000
+};
 
-                        axios.post(API_ENDPOINT, data, { headers })
-                            .then(response =&gt; {
-                                console.log(`Book generation started. Job ID: ${response.data.job_id}`);
-                            })
-                            .catch(error =&gt; {
-                                console.error('Error:', error.response ? error.response.data : error.message);
-                            });
+axios.post(API_ENDPOINT, data, { headers })
+    .then(response =&gt; {
+    console.log(`Book generation started. Job ID: ${response.data.job_id}`);
+    })
+.catch(error =&gt; {
+    console.error('Error:', error.response ? error.response.data : error.message);
+});
 
-                    </code>
+</code>
                 </pre>
             </section>
+             <!-- Pricing Section -->
             <section id="pricing">
                 <h2>API Pricing</h2>
                 <p>Our API pricing is based on the model used and the number of tokens processed. Here's a breakdown of the costs:</p>
